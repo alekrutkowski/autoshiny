@@ -103,40 +103,39 @@ makeCode <- function(fun, funname, withGoButton) {
                     sidebarLayout(
                         .(if (fun_has_args)
                             bquote(sidebarPanel(
-                                bquote(
-                                    list(h4('Inputs'),
-                                         .(lapply(.args,
-                                                  makeInput)))
-                                )))),
-                        mainPanel(.(if (withGoButton)
-                            quote(actionButton('..go', "Go, (re)calculate!"))),
-                            conditionalPanel(condition = "input['..go'] != 0 && !($('html').hasClass('shiny-busy'))",
-                                             .(makeOutput(returnsList))),
-                            conditionalPanel(condition="$('html').hasClass('shiny-busy')",
-                                             tags$div(br(), "Please wait... ",
-                                                      tags$img(src='https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif',
-                                                               alt="loader",
-                                                               style="width: 4em; height: 4em;"))))
-                    )
+                                list(h4('Inputs'),
+                                     .(lapply(.args,
+                                              makeInput)))
+                            ))),
+                    mainPanel(.(if (withGoButton)
+                        quote(actionButton('..go', "Go, (re)calculate!"))),
+                        conditionalPanel(condition = "input['..go'] != 0 && !($('html').hasClass('shiny-busy'))",
+                                         .(makeOutput(returnsList))),
+                        conditionalPanel(condition="$('html').hasClass('shiny-busy')",
+                                         tags$div(br(), "Please wait... ",
+                                                  tags$img(src='https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif',
+                                                           alt="loader",
+                                                           style="width: 4em; height: 4em;"))))
                 )
-            ),
-        server =
-            bquote(
-                function(input, output) {
-                    .(funname) <- .(fun)
-                    .(`if`(fun_has_args,
-                           bquote(..coerceInputs <- function(input) .(.CoercedInputs)),
-                           bquote()))
-                    ..isFileInput <- .(isFileInput)
-                    File <- .(File)
-                    ..value <-
-                        .(if (withGoButton)
-                            bquote(eventReactive(input[['..go']], .(.value)))
-                          else bquote(function() .(.value)))
-                    .(lapply(returnsList,
-                             function(x) render(x, quote(..value()))))
-                }
             )
+    ),
+    server =
+        bquote(
+            function(input, output) {
+                .(funname) <- .(fun)
+                .(`if`(fun_has_args,
+                       bquote(..coerceInputs <- function(input) .(.CoercedInputs)),
+                       bquote()))
+                ..isFileInput <- .(isFileInput)
+                File <- .(File)
+                ..value <-
+                    .(if (withGoButton)
+                        bquote(eventReactive(input[['..go']], .(.value)))
+                      else bquote(function() .(.value)))
+                .(lapply(returnsList,
+                         function(x) render(x, quote(..value()))))
+            }
+        )
     )
 }
 

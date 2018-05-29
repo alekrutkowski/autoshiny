@@ -2,12 +2,11 @@ library(shiny)
 fluidPage(
     titlePanel("function(x = 1:3, y = 5:9) x + y"),
     sidebarLayout(
-        sidebarPanel(
-            bquote(list(h4("Inputs"),
-                        list(radioButtons(inputId = "x", label = "x",
-                                          choices = 1:3, selected = 1),
-                             radioButtons(inputId = "y", label = "y",
-                                          choices = 5:9, selected = 5))))),
+        sidebarPanel(list(h4("Inputs"),
+                          list(radioButtons(inputId = "x", label = "x",
+                                            choices = 1:3, selected = 1),
+                               radioButtons(inputId = "y", label = "y",
+                                            choices = 5:9, selected = 5)))),
         mainPanel(
             NULL,
             conditionalPanel(

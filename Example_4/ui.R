@@ -2,10 +2,10 @@ library(shiny)
 fluidPage(
     titlePanel("Excel file in and out"),
     sidebarLayout(
-        sidebarPanel(bquote(list(h4("Inputs"),
-                                 list(fileInput(inputId = "Input Excel file",
-                                                label = "Input Excel file",
-                                                multiple = FALSE))))),
+        sidebarPanel(
+            list(h4("Inputs"), list(fileInput(inputId = "Input Excel file",
+                                              label = "Input Excel file",
+                                              multiple = FALSE)))),
         mainPanel(
             NULL,
             conditionalPanel(

@@ -3,25 +3,22 @@ fluidPage(
     titlePanel("A function with lists everywhere"),
     sidebarLayout(
         sidebarPanel(
-            bquote(
-                list(h4("Inputs"),
-                     list(list(radioButtons(
-                                   inputId = "First argument group, number one",
-                                   label = "First argument group, number one",
-                                   choices = 1:3, selected = 1),
-                               radioButtons(
-                                   inputId = "First argument group, number two",
-                                   label = "First argument group, number two",
-                                   choices = c("a", "b", "c"), selected = "a")),
-                          list(radioButtons(
-                                   inputId = "2nd arg group, 1st argument",
-                                   label = "2nd arg group, 1st argument",
-                                   choices = 11:14, selected = 11),
-                               radioButtons(
-                                   inputId = "2nd arg group, second arg.",
-                                   label = "2nd arg group, second arg.",
-                                   choices = c("A", "B", "C", "D", "E"),
-                                   selected = "A")))))),
+            list(h4("Inputs"),
+                 list(list(radioButtons(
+                               inputId = "First argument group, number one",
+                               label = "First argument group, number one",
+                               choices = 1:3, selected = 1),
+                           radioButtons(
+                               inputId = "First argument group, number two",
+                               label = "First argument group, number two",
+                               choices = c("a", "b", "c"), selected = "a")),
+                      list(radioButtons(inputId = "2nd arg group, 1st argument",
+                                        label = "2nd arg group, 1st argument",
+                                        choices = 11:14, selected = 11),
+                           radioButtons(inputId = "2nd arg group, second arg.",
+                                        label = "2nd arg group, second arg.",
+                                        choices = c("A", "B", "C", "D", "E"),
+                                        selected = "A"))))),
         mainPanel(
             NULL,
             conditionalPanel(

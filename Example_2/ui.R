@@ -2,12 +2,12 @@ library(shiny)
 fluidPage(
     titlePanel("Histogram for normal distribution"),
     sidebarLayout(
-        sidebarPanel(bquote(list(h4("Inputs"),
-                                 list(radioButtons(
-                                          inputId = "Number of observations",
-                                          label = "Number of observations",
-                                          choices = c(100, 10, 1000),
-                                          selected = 100))))),
+        sidebarPanel(
+            list(h4("Inputs"), list(radioButtons(
+                                        inputId = "Number of observations",
+                                        label = "Number of observations",
+                                        choices = c(100, 10, 1000),
+                                        selected = 100)))),
         mainPanel(
             NULL,
             conditionalPanel(

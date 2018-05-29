@@ -41,12 +41,6 @@ library(shiny)
 makeApp(function(x=1:3, y=5:9) x+y)
 ```
 
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
-
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot1.png)
 
 See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_1) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
@@ -61,12 +55,6 @@ See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Exa
 
 makeApp(`Histogram for normal distribution`)
 ```
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot2.png)
 
@@ -86,12 +74,6 @@ See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Exa
     }
 makeApp(`Table of sin and cos values`)
 ```
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot3.png)
 
@@ -115,12 +97,6 @@ openxlsx::write.xlsx(data.frame(x=1:5,
     }
 makeApp(`Excel file in and out`)
 ```
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot4.png)
 
@@ -167,12 +143,6 @@ See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Exa
                  ggplot2::qplot(a,b,data=data.frame(a=1:20,b=log(1:20))))
 makeApp(`A function with lists everywhere`)
 ```
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
-
-    ## Warning in charToRaw(enc2utf8(text)): argument powinien być wektorem tekstowym o długości 1.
-    ## Wszystkie elementy poza pierwszym zostaną zignorowane
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot6.png)
 

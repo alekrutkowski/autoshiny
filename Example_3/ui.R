@@ -3,15 +3,14 @@ fluidPage(
     titlePanel("Table of sin and cos values"),
     sidebarLayout(
         sidebarPanel(
-            bquote(list(h4("Inputs"),
-                        list(fileInput(
-                                 inputId = "Upload CSV file with column \"x\"",
-                                 label = "Upload CSV file with column \"x\"",
-                                 multiple = FALSE,
-                                 accept = c(
-                                     "text/csv",
-                                     "text/comma-separated-values,text/plain",
-                                     ".csv")))))),
+            list(h4("Inputs"),
+                 list(fileInput(inputId = "Upload CSV file with column \"x\"",
+                                label = "Upload CSV file with column \"x\"",
+                                multiple = FALSE,
+                                accept = c(
+                                    "text/csv",
+                                    "text/comma-separated-values,text/plain",
+                                    ".csv"))))),
         mainPanel(
             NULL,
             conditionalPanel(
