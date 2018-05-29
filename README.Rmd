@@ -21,11 +21,12 @@ print.shiny.appobj2 <- function(x, ...) { # needed to prepare the screenshots, o
     cat("", file=fname) # pre-save the file placeholder so that pandoc dones not complain
     webshot::appshot(structure(x, class='shiny.appobj'),
                      file=paste0(getwd(),'/',fname),
+                     vheight=300,
                      delay=3)
     cat(paste0('\n![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/',fname,')\n\n', # needs results='asis' in chunk options
-               'See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_',i,') ',
-               'of the app generated with `makeFiles`',
-               '(and formatted with [rfmt](https://github.com/google/rfmt)).')) 
+               'See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_',i,') generated with `makeFiles` ',
+               '(and formatted with [rfmt](https://github.com/google/rfmt)) ',
+               'of the app whose initial-state screenshot is displayed above.')) 
 }
 ```
 
@@ -168,8 +169,8 @@ makeApp(`Get "GDP and main components" from Eurostat`,
              `2nd arg group,` = list(`1st argument` = 11:14,
                                     `second arg.` = LETTERS[1:5]))
         list(`Some text` =
-                 as.character(`First argument group,`$`number two`,
-                              `2nd arg group,`$`second arg.`),
+                 as.character(c(`First argument group,`$`number two`,
+                              `2nd arg group,`$`second arg.`)),
              `Some numbers` =
                  `First argument group,`$`number one` +
                  `2nd arg group,`$`1st argument`,

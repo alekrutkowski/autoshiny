@@ -43,7 +43,7 @@ makeApp(function(x=1:3, y=5:9) x+y)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot1.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_1) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
+See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_1) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
 
 ### Example 2: Nicer function and argument names
 
@@ -58,7 +58,7 @@ makeApp(`Histogram for normal distribution`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot2.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_2) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
+See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_2) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
 
 ### Example 3: Data frame in (upload CSV), data frame out (displayed and downloadable as CSV)
 
@@ -77,7 +77,7 @@ makeApp(`Table of sin and cos values`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot3.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_3) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
+See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_3) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
 
 ### Example 4: Arbitrary input and output files
 
@@ -100,7 +100,7 @@ makeApp(`Excel file in and out`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot4.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_4) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
+See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_4) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
 
 ### Example 5: Using a button as a (re-)evaluation trigger
 
@@ -123,7 +123,7 @@ makeApp(`Get "GDP and main components" from Eurostat`,
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot5.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_5) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
+See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_5) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
 
 ### Example 6: Lists of inputs (arguments) and the output list (composite return value) are always decomposed
 
@@ -134,8 +134,8 @@ See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Exa
              `2nd arg group,` = list(`1st argument` = 11:14,
                                     `second arg.` = LETTERS[1:5]))
         list(`Some text` =
-                 as.character(`First argument group,`$`number two`,
-                              `2nd arg group,`$`second arg.`),
+                 as.character(c(`First argument group,`$`number two`,
+                              `2nd arg group,`$`second arg.`)),
              `Some numbers` =
                  `First argument group,`$`number one` +
                  `2nd arg group,`$`1st argument`,
@@ -146,4 +146,4 @@ makeApp(`A function with lists everywhere`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot6.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_6) of the app generated with `makeFiles`(and formatted with [rfmt](https://github.com/google/rfmt)).
+See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_6) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
