@@ -16,7 +16,7 @@ library(autoshiny)
 Key info
 --------
 
-There are two key twin functions: `makeApp` and `makeFiles`. Both of them take a function as their first argument/parameter. Function `makeApp` returns [a Shiny app object](https://rdrr.io/cran/shiny/man/shinyApp.html). `makeFiles` produces `ui.R` and `server.R` files. instead of . These files can be further edited to tweak the app if needed.
+There are two key twin functions: `makeApp` and `makeFiles`. Both of them take a function as their first argument/parameter. Function `makeApp` returns [a Shiny app object](https://rdrr.io/cran/shiny/man/shinyApp.html). `makeFiles` produces `ui.R` and `server.R` files. These files can be further edited to tweak the app if needed.
 
 Using **autoshiny** does not imply any run-time dependency of the compiled app on **autoshiny** i.e. **autoshiny** is needed only at the compile time. **autoshiny** uses standard Shiny input and output widgets and render functions. Tiny helper functions are embedded in the compiled app code to make it self-contained.
 
