@@ -1,11 +1,13 @@
 Package: autoshiny
-Title: Automatic transformation of an R function into a Shiny app
-Version: 0.0.0.9000
+Title: Automatic Transformation of an 'R' Function into a 'shiny' App
+Version: 0.0.2
 Authors@R: person("Aleksander", "Rutkowski", email = "alek.rutkowski@gmail.com", role = c("aut", "cre"))
-Description: Static code compilation (into ui.R and server.R files or into a Shiny app object) of a Shiny app given an R function.
-Depends: R (>= 3.4.3)
-License: MIT
+Description: Static code compilation of a 'shiny' app given an R function (into 'ui.R' and 'server.R' files or into a 'shiny' app object). See examples at <https://github.com/alekrutkowski/autoshiny>.
+URL: https://github.com/alekrutkowski/autoshiny
+Depends: R (>= 3.4.0)
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Suggests: shiny, roxygen2, rfmt, magrittr, webshot
 RoxygenNote: 6.0.1
+Imports: shiny, utils
+Suggests: roxygen2, magrittr, webshot

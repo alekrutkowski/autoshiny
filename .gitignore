@@ -4,3 +4,5 @@
 README_files
 *.xlsx
 *.ini
+autoshiny.Rcheck
+*.tar.gz

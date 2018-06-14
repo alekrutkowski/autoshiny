@@ -1,10 +1,10 @@
-autoshiny -- R package for automatic transformation of an R function into a Shiny app
+autoshiny – R package for automatic transformation of an R function into
+a Shiny app
 ================
 Aleksander Rutkowski
-2018-05-29
+2018-06-14
 
-Installation
-------------
+## Installation
 
 ``` r
 # if package `devtools` not installed, first do this:
@@ -13,23 +13,38 @@ devtools::install_github('alekrutkowski/autoshiny')
 library(autoshiny)
 ```
 
-Key info
---------
+## Key info
 
-There are two key twin functions: `makeApp` and `makeFiles`. Both of them take a function as their first argument/parameter. Function `makeApp` returns [a Shiny app object](https://rdrr.io/cran/shiny/man/shinyApp.html). `makeFiles` produces `ui.R` and `server.R` files. These files can be further edited to tweak the app if needed.
+There are two key twin functions: `makeApp` and `makeFiles`. Both of
+them take a function as their first argument/parameter. Function
+`makeApp` returns [a Shiny app
+object](https://rdrr.io/cran/shiny/man/shinyApp.html). `makeFiles`
+produces `ui.R` and `server.R` files. These files can be further edited
+to tweak the app if needed.
 
-Using **autoshiny** does not imply any run-time dependency of the compiled app on **autoshiny** i.e. **autoshiny** is needed only at the compile time. **autoshiny** uses standard Shiny input and output widgets and render functions. Tiny helper functions are embedded in the compiled app code to make it self-contained.
+Using **autoshiny** does not imply any run-time dependency of the
+compiled app on **autoshiny** i.e. **autoshiny** is needed only at the
+compile time. **autoshiny** uses standard Shiny input and output widgets
+and render functions. Tiny helper functions are embedded in the compiled
+app code to make it self-contained.
 
-All the arguments/parameters of the function passed to `makeApp` and `makeFiles` *must have default values* which will be used by **autoshiny** to define each argument's:
+All the arguments/parameters of the function passed to `makeApp` and
+`makeFiles` *must have default values* which will be used by
+**autoshiny** to define each argument’s:
 
--   type/class -- Shiny input widget type,
--   allowed values -- Shiny input widget's allowed states,
--   pre-selected/start-up value of the Shiny input widget -- for categorical values (e.g. integers, factors, character vectors that will be the first element of the vector).
+  - type/class – Shiny input widget type,
+  - allowed values – Shiny input widget’s allowed states,
+  - pre-selected/start-up value of the Shiny input widget – for
+    categorical values (e.g. integers, factors, character vectors that
+    will be the first element of the vector).
 
-The default values of the function arguments/parameters will be also used to pre-evaluate that function in order to test it and to determine the type of its output (return value / side effect) and, hence, the Shiny outut widget.
+The default values of the function arguments/parameters will be also
+used to pre-evaluate that function in order to test it and to determine
+the type of its output (return value / side effect) and, hence, the
+Shiny output
+widget.
 
-Examples
---------
+## Examples
 
 ``` r
 library(shiny)
@@ -43,7 +58,11 @@ makeApp(function(x=1:3, y=5:9) x+y)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot1.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_1) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
+See the [source
+code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_1)
+generated with `makeFiles` (and formatted with
+[rfmt](https://github.com/google/rfmt)) of the app whose initial-state
+screenshot is displayed above.
 
 ### Example 2: Nicer function and argument names
 
@@ -58,7 +77,12 @@ makeApp(`Histogram for normal distribution`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot2.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_2) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
+See the [source
+code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_2)
+generated with `makeFiles` (and formatted with
+[rfmt](https://github.com/google/rfmt)) of the app whose initial-state
+screenshot is displayed
+above.
 
 ### Example 3: Data frame in (upload CSV), data frame out (displayed and downloadable as CSV)
 
@@ -77,7 +101,11 @@ makeApp(`Table of sin and cos values`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot3.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_3) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
+See the [source
+code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_3)
+generated with `makeFiles` (and formatted with
+[rfmt](https://github.com/google/rfmt)) of the app whose initial-state
+screenshot is displayed above.
 
 ### Example 4: Arbitrary input and output files
 
@@ -100,14 +128,25 @@ makeApp(`Excel file in and out`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot4.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_4) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
+See the [source
+code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_4)
+generated with `makeFiles` (and formatted with
+[rfmt](https://github.com/google/rfmt)) of the app whose initial-state
+screenshot is displayed above.
 
 ### Example 5: Using a button as a (re-)evaluation trigger
 
 Use this option if:
 
--   the evaluation of your functon takes time, so it should not be re-evaluated with every minor change of the value of inputs/arguments/parameter;
--   the function is impure e.g. depends on some external data fetched internally and takes no arguments/parameters -- in such a case the function would be re-evaluated only through page refresh of the browser; the button is a faster and a more elegant solution.
+  - the evaluation of your functon takes time, so it should not be
+    re-evaluated with every minor change of the value of
+    inputs/arguments/parameter;
+  - the function is impure e.g. depends on some external data fetched
+    internally and takes no arguments/parameters – in such a case the
+    function would be re-evaluated only through page refresh of the
+    browser; the button is a faster and a more elegant solution.
+
+<!-- end list -->
 
 ``` r
 `Get "GDP and main components" from Eurostat` <-
@@ -123,7 +162,12 @@ makeApp(`Get "GDP and main components" from Eurostat`,
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot5.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_5) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
+See the [source
+code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_5)
+generated with `makeFiles` (and formatted with
+[rfmt](https://github.com/google/rfmt)) of the app whose initial-state
+screenshot is displayed
+above.
 
 ### Example 6: Lists of inputs (arguments) and the output list (composite return value) are always decomposed
 
@@ -146,4 +190,8 @@ makeApp(`A function with lists everywhere`)
 
 ![](https://cdn.rawgit.com/alekrutkowski/autoshiny/master/screenshot6.png)
 
-See the [source code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_6) generated with `makeFiles` (and formatted with [rfmt](https://github.com/google/rfmt)) of the app whose initial-state screenshot is displayed above.
+See the [source
+code](https://github.com/alekrutkowski/autoshiny/tree/master/Example_6)
+generated with `makeFiles` (and formatted with
+[rfmt](https://github.com/google/rfmt)) of the app whose initial-state
+screenshot is displayed above.

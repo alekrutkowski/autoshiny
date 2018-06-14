@@ -1,2 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^Example_.$
+README_files
+README\.Rmd
+\.gitignore
+^.*\.xlsx$
+^.*\.png$
+^.*\.ini$
+\.git
+\.Rdata

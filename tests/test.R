@@ -1,10 +1,5 @@
 library(magrittr)
 
-getwd() %>%
-	paste0('/R/') %>%
-	list.files(full.names=TRUE) %>%
-	lapply(source)
-
 # Helpers -----------------------------------------------------------------
 
 testIf <- function(msg, expr) {
@@ -24,7 +19,7 @@ testIf <- function(msg, expr) {
 		  genericFunNameAsString2)
 	SupportedClasses <-
 		.Names %>%
-		lapply(. %>% supportedClasses %>% sort) %>%
+		lapply(. %>% autoshiny:::supportedClasses() %>% sort) %>%
 		mapply(setdiff,
 			   ., ignore,
 			   SIMPLIFY=FALSE) %>%

@@ -61,7 +61,7 @@ be used by **autoshiny** to define each argument's:
 that will be the first element of the vector).
 
 The default values of the function arguments/parameters will be also used to pre-evaluate that function in order to
-test it and to determine the type of its output (return value / side effect) and, hence, the Shiny outut widget.
+test it and to determine the type of its output (return value / side effect) and, hence, the Shiny output widget.
 
 ## Examples
 
@@ -74,7 +74,7 @@ library(shiny)
 j <- 0
 makeApp <- function(...) {
     j <<- j + 1
-    autoshiny::makeFiles(...)
+    autoshiny::makeFiles(...,directory=getwd())
     ExN <- paste0('Example_',j)
     if (!dir.exists(ExN))
         dir.create(ExN)
