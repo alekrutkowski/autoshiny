@@ -32,11 +32,18 @@ print.shiny.appobj2 <- function(x, ...) { # needed to prepare the screenshots, o
 
 ## Installation
 
+[From CRAN](https://CRAN.R-project.org/package=autoshiny):
+
+```{r, eval=FALSE}
+install.packages('autoshiny')
+```
+
+or the latest version from GitHub:
+
 ```{r, eval=FALSE}
 # if package `devtools` not installed, first do this:
 # install.packages('devtools')
 devtools::install_github('alekrutkowski/autoshiny')
-library(autoshiny)
 ```
 
 ## Key info
@@ -64,6 +71,10 @@ The default values of the function arguments/parameters will be also used to pre
 test it and to determine the type of its output (return value / side effect) and, hence, the Shiny output widget.
 
 ## Examples
+
+```{r, eval=FALSE}
+library(autoshiny)
+```
 
 ```{r}
 library(shiny)

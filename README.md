@@ -2,15 +2,22 @@ autoshiny – R package for automatic transformation of an R function into
 a Shiny app
 ================
 Aleksander Rutkowski
-2018-06-14
+2018-06-18
 
 ## Installation
+
+[From CRAN](https://CRAN.R-project.org/package=autoshiny):
+
+``` r
+install.packages('autoshiny')
+```
+
+or the latest version from GitHub:
 
 ``` r
 # if package `devtools` not installed, first do this:
 # install.packages('devtools')
 devtools::install_github('alekrutkowski/autoshiny')
-library(autoshiny)
 ```
 
 ## Key info
@@ -45,6 +52,10 @@ Shiny output
 widget.
 
 ## Examples
+
+``` r
+library(autoshiny)
+```
 
 ``` r
 library(shiny)
