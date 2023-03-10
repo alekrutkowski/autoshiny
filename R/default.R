@@ -1,4 +1,4 @@
-default <- function (x, ...)
+default <- function (x)
     UseMethod('default', x)
 
 first <- function(x)

@@ -1,4 +1,4 @@
-makeInput <- function (x, ...)
+makeInput <- function (x)
 	UseMethod('makeInput', x)
 
 #' @export
@@ -38,6 +38,7 @@ makeInput.data.frame <- function(x)
                      accept = c('text/csv',
                                 'text/comma-separated-values,text/plain',
                                 '.csv')))
+
 #' @export
 makeInput.file  <- function(x)
     bquote(fileInput(inputId = .(getArgName(x)),
@@ -49,6 +50,7 @@ makeInput.list <- function(x)
 	`if`(is.data.frame(x), makeInput.data.frame(x),
 		 lapply(withArgNames(x),
 		 	   makeInput))
+
 
 # Helpers
 

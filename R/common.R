@@ -33,7 +33,7 @@ File <- function(x) {
     structure(x, class="file")
 }
 
-#' @export
+
 .NULL <-  # "NULL" with class
     structure(function() {},
               class="NULL")

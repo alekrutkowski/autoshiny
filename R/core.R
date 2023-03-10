@@ -175,6 +175,8 @@ makeCode <- function(fun, funname, withGoButton) {
 #' }
 #' @examples
 #' \dontrun{
+#' library(shiny)
+#' 
 #' ### Example 1: Trivial anonymous function
 #' makeApp(function(x=1:3, y=5:9) x+y)
 #' 
@@ -323,27 +325,3 @@ checkClasses <- function(.args, genericFunNameAsString) {
 evalAsTxtCode <- function(bquoted_code)
     eval(parse(text=deparse(bquoted_code,
                             backtick=TRUE)))
-
-
-
-# correctlyNamed <- function(List) {
-# 	List.names <- names(List)
-# 	correct.names <- make.names(List.names,
-# 								unique=TRUE,
-# 								allow_=TRUE)
-# 	names(List) <-
-# 		if (length(List.names)==0)
-# 			paste0('X.',seq_len(List))
-# 	else
-# 	correct.names
-# }
-
-# correctlyNamed <- function(List) {
-# 	List.names <- names(List)
-# 	correct.names <- make.unique(List.names)
-# 	names(List) <-
-# 		if (length(List.names)==0)
-# 			paste0('X.',seq_len(List))
-# 	else
-# 		correct.names
-# }

@@ -50,6 +50,8 @@ Create a Shiny app (object or files) from an R function
 }
 \examples{
 \dontrun{
+library(shiny)
+
 ### Example 1: Trivial anonymous function
 makeApp(function(x=1:3, y=5:9) x+y)
 

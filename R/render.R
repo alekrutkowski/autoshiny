@@ -1,4 +1,4 @@
-render <- function (x, ...)
+render <- function (x, .value)
     UseMethod('render', x)
 
 #' @export
@@ -41,13 +41,9 @@ render.file <- function(x, .value)
                                    function(file)
                                        file.copy(.(.value), file)))
 
-render.as.data.frame <- function(x, .value)
-    render.data.frame(x, bquote(structure(as.data.frame(.(.value)),
-                                          .Names=.(outputArgNameToName(getArgName(x))))))
-
 #' @export
 render.ggplot <- function(x, .value)
-    render.NULL(x, .value) # render.NULL(print(x), .value)
+    render.NULL(x, .value)
 
 #' @export
 render.NULL <- function(x, .value)
@@ -59,6 +55,10 @@ render.list <- function(x, .value)
     `if`(is.data.frame(x), render.data.frame(x, .value),
          lapply(withArgNames(x),
                 function(y) render(y, bquote(.(.value)[[.(outputArgNameToName(getArgName(y)))]]))))
+
+render.as.data.frame <- function(x, .value)
+    render.data.frame(x, bquote(structure(as.data.frame(.(.value)),
+                                          .Names=.(outputArgNameToName(getArgName(x))))))
 
 withRowNames <- function(dframe)
     bquote({
@@ -84,7 +84,7 @@ makeRowNumsIfNull <- function(.dframe)
 tableDownload <- function(x, .value)
     bquote(downloadHandler(filename =
                                # function()
-                                   .(paste0(tableId(getArgName(x)),'.csv')),
+                               .(paste0(tableId(getArgName(x)),'.csv')),
                            content =
                                function(file)
                                    write.csv(.(.value), file),
@@ -94,7 +94,7 @@ tableDownload <- function(x, .value)
 plotDownload <- function(x, .value)
     bquote(downloadHandler(filename =
                                # function()
-                                   .(paste0(plotId(getArgName(x)),'.png')),
+                               .(paste0(plotId(getArgName(x)),'.png')),
                            content =
                                function(file) {
                                    png(file)
